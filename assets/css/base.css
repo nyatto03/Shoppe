@@ -1,0 +1,207 @@
+:root {
+    --primary-color: #EE4D2D;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --border-color: #dbdbdb;
+    --star-gold-color: #FFCE3E;
+    --header-height: 120px;
+    --navbar-height: 34px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+}
+
+* {
+    box-sizing: inherit;
+}
+
+/* Ví dụ, nếu bạn đặt kích thước font chữ của phần tử gốc (thường là <html>) là 16px, 
+và bạn sử dụng 1rem trong CSS của bạn, thì 1rem sẽ tương đương với 16px. 
+Nếu bạn muốn sử dụng 2rem, nó sẽ tương đương với 32px, và như vậy. 
+Đặt 62.5% -> 1rem = 10px*/
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes headerNotifyGrowth {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+/* Authen modal */
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    --growth-from: 0.7;
+    --growth-to: 1;
+    position: relative;
+    margin: auto;
+    z-index: 1;
+    animation: growth linear 0.2s;
+}
+
+/* button style */
+.btn {
+    min-width: 142px;
+    height: 36px;
+    border: 1px solid #f3f1f1;
+    border-radius: 2px;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+    cursor: pointer;
+    background-color: #fff;
+    text-decoration: none;
+    margin: 0 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.btn-normal:hover {
+    background-color: #e0dcdc;
+}
+
+.btn.btn--primary {
+    background-color: var(--primary-color);
+    opacity: 0.9;
+    color: #fff;
+}
+
+.btn.btn--primary:hover {
+    opacity: 0.7;
+}
+
+.btn.btn--disabled {
+    cursor: default;
+    background-color: #999;
+}
+
+/* Test */
+.grid__colum-2 {
+    /* padding-left: 5px; */
+    padding-right: 5px;
+    width: calc(100% / 6);
+}
+
+.grid__colum-10 {
+    padding-left: 5px;
+    /* padding-right: 5px; */
+    width: calc(100% * 5 / 6);
+}
+
+.grid__colum-10--20 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: calc(100% / 5);
+}
+
+/* panigation */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-item {
+    list-style: none;
+}
+
+.pagination-item--active .pagination-item__link {
+    color: #fff;
+    background-color: var(--primary-color);
+
+}
+
+.pagination-item--active:hover {
+    opacity: 0.8;
+}
+
+.pagination-item__link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #939393;
+    min-width: 40px;
+    --height: 30px;
+    line-height: var(--height);
+    height: var(--height);
+    text-align: center;
+    display: block;
+    border-radius: 3px;
+    margin: 0 16px;
+}
+
+.pagination-item__link:hover {
+    color: var(--primary-color);
+}
+
+.home-product__pagination {
+    margin: 32px 0 52px 0;
+}
+
+.grid__colum-12--24 {
+    width: calc(100% / 5);
+}

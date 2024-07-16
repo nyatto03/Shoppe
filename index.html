@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shoppe</title>
+        <link rel="icon" href="https://fullstack.edu.vn/favicon/apple-touch-icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="./assets/css/base.css">
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.5.2-web/css/all.min.css">
+    </head>
+    <body>
+        <div class="app">
+            <header class="header">
+                <div class="grid">
+                    <nav class="header__navbar">
+                        <ul class="header__navbar-list">
+                            <li class="header__navbar-item header__navbar-item--separate header__navbar-item--has-qr">
+                                Vào cửa hàng trên ứng dụng Shoppe
+                                <div class="header__qr">
+                                    <img src="./assets/img/QR.png" alt="header__qr-img" class="header__qr-img">
+                                    <div class="header__qr-apps">
+                                        <div>
+                                            <a href="" class="header__qr-link">
+                                                <img src="./assets/img/App_store.png" alt="App Store" class="header__qr-download-img">
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="" class="header__qr-link">
+                                                <img src="./assets/img/Google_play.png" alt="Google Play" class="header__qr-download-img">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__navbar-item">
+                                <span class="header__navbar-title--no-poniner">Kết nối</span>
+                                <a href="" class="header__navbar-icon-link">
+                                    <i class="header__navbar-icon fa-brands fa-facebook"></i>
+                                </a>
+                                <a href="" class="header__navbar-icon-link">
+                                    <i class="header__navbar-icon fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="header__navbar-list">
+                            <li class="header__navbar-item header__navbar-item--notify">
+                                <a href="" class="header__navbar-item-link">
+                                    <i class="header__navbar-icon far fa-bell"></i>
+                                    Thông báo
+                                </a>
+                                <div class="header__notify">
+                                    <header class="header__notify-header">
+                                        <h3>Thông Báo Mới Nhận</h3>
+                                    </header>
+                                    <ul class="header__notify-list">
+                                        <li class="header__notify-item header__notify-item--viewed">
+                                            <a href="" class="header__notify-link">
+                                                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAKgAswMBIgACEQEDEQH/xAAcAAAABwEBAAAAAAAAAAAAAAAAAQIEBQYHAwj/xAA9EAACAQMBBQQIBAUEAgMAAAABAgMABBEFBhIhMUETIlFhBxRScYGRobEjMsHRFUJi4fAzcsLxU7IkgpL/xAAZAQADAQEBAAAAAAAAAAAAAAAAAgMBBAX/xAAkEQACAgIDAAIBBQAAAAAAAAAAAQIRAyESMUEEUTIiIzNCcf/aAAwDAQACEQMRAD8A1QO3tN86Pfb2m+dIFGKY9BpCt5vab50e83tN/wDqk0YoMpB7ze03zoBm9pvnRUKAoVvN7TUN5vaak0YoCg95vaahvHxY0ljgZOMDic8qyDbzbybUriXRdnZN21XKz3ak9/xAPQeY51jCi4bSekXStGd7e3Ml9drzjgbCqf6n/as61fb3avVCTDeJYwHlHajGR5ueP2qAAhtYRw32xxJxUTd6jM7ELhV8FosnKS8JhdpNctG331i/Y55tdu3H3EnNS+jekXV4ru29Y1F2t+2TtlYcd3PHGPKqGHaQ8XIJPM081G3FvHAgBK7u8ZBx3s9PhyosWOSXpt49Keko4DQX7QZx26BW+JG9n6Vb9I1my1i0W60y8W4hP8yNkqfAjofKvMmnzgEKSRngM9altL1W+0K/F9p1yYJeAcYykg8GXqP8HGgdSUmekt9vaagWb2mqC2R2ig2k0tbqIdnMncnhzncby8jzB/aps1qH4oPeb2mob7e03zpNCgKQrfb2m+dJLt7TfOiNEaDaQrfb2moUmhQFIMUdEKMUAAUoUVCgA6FFQoAOh7ufSiptqV9b6bYXF9eOEgt0Mjt4AeHnWMCielraltPsV0XT33by8T8Vwf8ATi6/E8R7s1ldmkdvGUA88kc/M+VI1PUpdZ1i51O6B7S4kLhfZXovwH2pcEe9lm4qPrQuycpbCue1ljZt8BOrE4FQs4jB/DYsOpxgVMXKPN+Y4UflWo5rR5H3Ixk/0illROrGiDebd8as+0CdloWmxru8mL93vZ8+tI0bZTUL2ZC0TJH1fwqY2305dO0u0tsEhSTvHqT/AGxScrN4NIptqhy28u9EfzU+Uctxt7HDJGcjzptZhiHAzjx6iuLTSwzd7O8Ofgap4InTJ3ZzaG62a1RLyyJMZwJoSTuuvUH9+lehdL1G21bT7e/sXLwTJvKTzHkR4/tXmGRxIuV6/etM9Ceuss91okzd1l7e3HgRwZfjwPzoTOiMrNdojR8+XKhTDBURpVFQaIoUqhQAoUdEtHQYCgaFCgAhRmhQNABDwrMPTXrO5ZWmiwtxuT20w/pU90fFv/WtO+OPPwrzpt/qn8V2u1GdTmON+yj8lTu/fJ+NYwfRCRuDkngN2nS3iKihVy3QVGNIQoA6mrLsNop1G6W4lXK72EHj4mkcuKIpcnSJbQNlJ9WCNOWWPwXrWlaFsPp1jGB6upb/AG5NTOlWEdpCqom6ccTUxDjkalXLbKykoqkMV0qCGMiOMAY5Cqntns569pjBUyVGceNaAd3FNp0VlIrXFeE1P7PMlzYCzlZJA8bdCP8AOBpjeqzKFlIb/wAco61tG2myCagrT2uEmHHhyNY7qMEllM9vcwspB4of0rYy8NnjVWiJVih3T/1Uvs3qjaPrljqSHHYTKzea8mHyJqJlXBPe3h0zzoRnKEHHxp2Tg6Z6xjdJI1dDlWAKnxB5UoVWvR1qP8T2N02VmLSRoYXJ55Q4/arIKojpFUk0ZoqDUChQoUAKo6GKMCgUIUdChQADSTSjRffpQBG7QXw03Rby8LYMUTFT544V5luCWkdyc8eJ8+ZrbfS9qPY6PBYq2GncuR/So5fX6ViMvCIHPBmJpWZPSRxVDLIsajJY4rb9hNLjgtImUYCqBWL6furdo78l41sWzu12n2tpHHNHKgxzapTMxdNmjwA4z0pyo4VAaVtHpl8N22uVJP8AKam1l3h3OXlQhWn6d64S1yuL2K1jLTOEUdTVfuNs9LjfcVnkOcd1TQzIxZNTqChDcqy70laB2kBuIY8uuTmrq21EDEb1vMFPXd5Uq6MN/ZuyNvqw5HnU32VSklX2ebnBViDwx0oohiUDx41Pba6V/C9WZVHck7y+VQS+fvqydo52qlRs/oRu97StQsWbJimWVR5MMfda0qsW9FV8LLaExE4W4iKH3g5H61tHMcDkVRdHXWg6FEKOtMBQoUKAOlChQoFBQNA0k0AH1pJNETTbUrhbWxnnkbdSNCxNbY0VbSMY9KOp+ua9OqNlYUCKP8+NUa67oiQdBn9qf39wb29klPHtn32PlUXcSdpKzDkTge6oiZpdk7sZZm6vWdU3ygBx7jV3t9otVYXxsNLtWt9PjZ5XuN7LBRkgAVC+iZN/UrhSM7q1p/8ABuyvHuI4Awk5lTg8uNTl2PFVAquzmv2Wt3Jjn0xLSbcSUyxEmMFuQJIBU59486v2ls272Y5gUysdCtYbZ7eCxitoJMFhH3c48ceFSmnxqt8+Dw3eVK1tUI/x7saahEsr/irvDkQR+9VPWtprrR1il0rSoWtXuFtzdShiAx8FUFiOHPmTjAq+SwpKxRhwOajm0VI1khSBZIXOWRzkH3g8K1LYWnGijaLt7qV3Dbz6tp6C2uJGjSSAHPDqV8P1B5Vdo2E0e+qkKR1XBrvb6OsaqOxjiC8gq05nUpGeAwPGiQ6aaSMc9KVuu9A45hiPvWdFd3veeK07byzv9T7drG3kmS2YNKyDO6PdzPwrhsT6NG2k0+W9vbmezj3t2AxKGOMcSfHHwpsXRP5EWmVXRL57aeG4jOJImB+I/tmvQGialFqenw3URyJFz7j1FYJtLs5dbJ6p6pcSCeJ13op0QrvDPUdD+lWz0cbVLbXQ0u6fdjmOY29hvZ/WqJ0yuGSkuLNhBoxXKJsqMnPDhXUGqA1QdCioUGHUUKKhQKHSSaOkmgBJJ6fGql6TtS9Q2TnC/wCpcYiT4/2zVs68KyP01X+/c2VirZEQMjDzPKslpFI/f0ZnJIAuPGm2QFLnpQJ33zROcnFJRxTlbLh6K9QFptE0THAmTHyNegrJg8ajOQK8pabdPY6hBcocFHBr0Rsxr8dzZRsW7xHGklp2dGJ88bX0Wu53UiZvAUx0VjLcu/TlXSW4SeFgpzlTwqG0HXbMXEtuzhJU4brjd+9LasFF8SYnk3JG99P4JEkRT1xVcvNat5LsxwrLM/L8NcgH31LWwMNvH7W7x8jRF7MlGoj+UqFqv69eC1tZGHPkAOZPQU+nvAiHjg1WfXDe7S2NspzGpZ2+AOPrismyuKNb+h9oGny6fokz3oHrVwSzrzwT+VakreK20qy3gkKqkLesLJIVVIxxc7qjA6UnWZ5LS2R0VHcECNfac8B8uJqqbXbXpaWFxazM05DqkyhFAeMf6nHxJ4DlxqmNUrHcJZFz8ETTaZtjpPqjSqSj5fdXd3fLjywCPlmsu2m2Z1HZi6DSgvaFvwrqMc/AN7Jx0+VaToC7NSait7puo2m4+W7AxqjEeBJ49avHqtlfWbQSGOSGRd0xt3lIPQg86lFuw+RSUWmQHo+13+O6BFM5zNEeylz7Q6/EcatanhVa2f2RttmLq6nsLmVra4IYwSYIQ5OMHA8SPl4VYlPD7V1RdoXly2dKFJzQrQOtDNJoUCUKJpBNHXNjQakGTXnb0jaj69tVfvvbypJ2S+5eFeiEQzNIqsFK8ASM4rFdpvRTtFDJLdWstvqCklyqnckPjgHh9aSTXRmSVRaXZnUJ3W3q6FO6zeNObzRtU0+3F1f6bd20LHCPNAyAnwyRTVWynjgcxyrbOKjlKvL3Vf8AYDVN6JbedsFTgHPMVRZFwgPDJHLxrR9C2Ruk2attQuQbUKd47/CRuJ5L+9TyK0dHxf5Kvsvrzz2tqtzCrTRIPxVU5bHiB1qPXWtnL+ZTcTbrH/yRFfvTPZ3V0kuTbrK3cXAVgfHzp/faEUuGnt7eOVJOcTx5GfKoI9OGPEpuOSX+NEp/HNn9LVI/WY94dEXnXW21pNZcx6fFcKsfF5XXcUVE6Xpc670Vvaw2SuMM8cKqfnVlt7SOxs1iiGABknqT50z6J5o4IKou2R+pTbiHoTzNVvZWb1rbjCcY4bd2dvZJIAH3obZ63DZROobMnIAczTH0NLJqH8Xv3OO1kSIDwABb/lSxi2znclGNP0u+0ck9qv8AEJkYQW0bOrHlvngM+4fes6i1jQItSNvr6kLOgZJGBYLg/wA3vPw4VrM0MltC0sBctg4XewD7/KqDrWw1lq+oPfTwbjyYHZxsVVBywAOGP3qspqqZXHnmsfGBNbOjSUTd0HTYLq1L966jaPAbqPHhmrbncUdpEN3HQ5qixaNcaRahdPXsdwYAXh9KfbObS33rfqWrJvGQ/hyxxnl/UKkp72Llxua5LwsF+9u9o7IuMkLnGOZrpnBOOWagNv8AUV0vTopYj3prmKPHvYZ+gNTue8SOvOunH0JiWheaOkZoVQahxQ+GaUiFuAOKdwQd3gMn2qLIzyKI2WB36YFdBbooy5z5GnW6o5gt5jpXGdoBlXOVHEhh4+dY2QeVyZH2V7aMZ+xnhcqx3lRwSvQZHy+ddrWGR94yueyzlVxjh50ytre1tySIIY91icIgHHPU0/MqyAbxHkq1AZnO/jtbuFrSeJXhbmpXIqFs9idnIL0apbaZb+uRkb6sncxxBIU8AcHOfKrBmQL3Y0QeJqK1HUZrFJby2jWSUKV3C2AW5ii0mCUmqRnu19vo3o+v0n0zQ1mvrwvJbTXLb0NsAeIRccSMjw4Hn0qwWQn1LR7W5vZO0nkgVmOMcSPAcB8qyfarXNT1TUZbbUXVYbWZxFbRLuxx56geY61rGx8oudnLBhxxAq593CjI7RsVxKzqenvYXaXtmh3ozkgdavezms2+oWiMhXIHeU9DUfqtp2kbDh8aqL289hMZLdnXrkGoJ0dSqapmtGWId4lRVQ2v2pt9Nt2jgYPMQd1R0NVC517VGXs/WGBPDgONQF4krktJl2PMtxOa1ys1YqIi7ubnUNQE1y5cls4PQVsnopsRY7Onu4M1xJIeH9WB9AKzrSNJKW0l468ZPw4/1+1a9sfEsOj2yKMdwH58aquieWuOyem/IfOm0EIzg8qdyY3eNcUfHBRk0MhF6OV1AvZtkA8OGaZW1imElABdX3zjqKkjCZOMx+FN725isrdmLBQBzPLFK1Yyl4Zf6ZdVB1HSNKibisyzP7gd1fua0dW4d4Y9x4VgeuaoNf23N3GxkQzpHEx5EKeY8ic1utpcJNAjxnukcAa6MaovhX6Wx0JVNFSefs0dUKUiSViI8wN8Vxx8OfXP2p7C4eFTgA4+lMLX8ONUHAKAATyOeJNdpB2QMnaKgUZI3uVSvZ5zQ6DAjB+vOo7WZuws3lXvGIh/0/XPwp/I4khJjGTz4GmF7IFtXEinckQhs+7jWt6FgqZD6FfR3c0UcwyyxA8OWcnNTsvZxJkAAeJ5CqRoTdhfqhOdzK73iM/2q8ACWHvdV4VGJfJplWi2gu73Xp9Ot4jJbW6qZbqPjuk/y48cYJNI2hkVLC4VGziZH8OPM/QU31RZdC1BIdLtooEvpsvNySJsce6OZP3zURf9pcLJcRO5srPfIJ4mZgO8xPzFTl2dMIJLkjJdXvBearfXS8FkmLKMfy5wPoK1T0X3PrGgdl1gkKn48RWOK+WBGAG6eFaL6HdRSHVJ9PmOPWU3o/8Acv8AbPyq0lo5k9s0u5HdNQN1bmTIAzxq0XUA3gAMZrgbDAzUJIpCVFNl0xFBdhjHWmVtpLaheJGgO6xxvD+VerVcL+ye5dYI13VP5j4+VSGmaYtukkuF3iNxSByA/wA+lZGNsq8lIrF/p/fSFVIjjAVVPh0q6aVGYLCBQMbqD7VEXVv+bzIH1qw26/hAeAq5DJK0dEPaHvcq6gqtc0XAqO1nVYNKtJbm6kEcUYyWJwKz0l4PL+/gtIHmncRxoMlmOAKwP0gbcz6/M9nYOY9PU4LDgZcf8aZ7dbb3W007W8JeKwU8E5GXzP7VVQCTx5+7FOl9i34S2zUTS65ZRqSGMgII4YPTjW5aVcOu8HGCT3gBjJ8R4Z8PH31iWzOU1m1ZRkh8geNbbuB9yeFvxAuf91PHs9P4y/bJkcR0oqj476MoCrMo9ncJx5cqFOPRYY5N6YiQFQjFY2U8McOB+X0p6XZzh17NiMByQR78VGwPl5AgwHPBW955f51p/hOKOgPDJBxwNSPKZzQTKd/tO0UgAqAM46e7rXDUTFBauzShF/OOhHjXWScWkZknkAhHDP8AMuf+qqm1O1lpp1s6WcgnkYbuSCVXzY0N0h4wtjYXEEmqNJburo6hsqcjp+xq56fLvxL7qxDY/VQ200sXDspFO6FGFGD0HT81bPpq/ggjliprs3KtCdcjDwktGsgBBKMMhh4VW9sp4LbZS/ltUVUFo3ZhRgA4OOHv+1W26UFCDyrIvSrqptdKOnR87qYg/wC1cE/UgVn9jYv9DMqT8n2qQ0bUJtPvoLq3/wBWFw6+eOlRinh7+NLVipyOfSq1ojFnqDRL2HV9Pt7+BspMgceVSMqZGKzf0Nak8llcWUn5UxKg8ASQR81z8a00g/CpUUemM0gxx+FO5IsRBOiqBn70qJMuM8hx5ULk8kOTnmAefGmig9Im5CtPAniSx8wKk4l48OXOoy3HrF/M5yd3CceWRzx9vhUzGuB8KxmTYcjYX7VjHpy1Zv8A4emRsdxyZHA/pxgfM1sE74U8cHpXnH0m3/r2110FOY7bES/c/fHwrY9ivUSqgceldVHCuac66qM8KqJFD7Spjb3UMg6OOFbto9wk9jDJGMg8Rw5Vg8MZZA4/lNaXsBrG/ELd/wAvUN/nx+NZF0z0vjyfFxL61tE53mt1YnrnnQoK43RuvgdBQqpbZLK0SAHvr2eA3dOeIOP24V0R4gCsDLIw4YTBwDQoVD08xLRUtq9r7PR8Ri5SeQfnjTdJP9P74rHde1yS9llIdxE7lhGDnGf0oUKwrJ8YaF7Ch5dqLcjh3X4H3V6M0wYtlzzoUKz0k/wQm+futk4AGa87+krUDebQtCDlbdcf/Zu8fpuj4UKFEewl+JVxQHFh7+PuoUKoSRrXoVRvWLxv5QiD4862HoaFCootPsVBnLsM+HCoTa67ltNJkFpj1qVhFF5Mevw50KFO+jcfZ20KxWz0+CBePZoFzzJ95/zrUq5wMUKFYI+2RuoziC2mkbkqkmvLN9cG9v7ic8e1ld8+85o6FbHsWfQhVAHGukIy4B5UdCnCI/spRHIyMu8CCAPHyp5oF49jqQROecqfMf2zQoUnp24e0bNZ3C3NrFMrqA6g0KFCrHotH//Z" alt="" class="header__notify-img">
+                                                <div class="header__notify-info">
+                                                    <span class="header__notify-name">Mỹ phẩm</span>
+                                                    <span class="header__notify-descriotion">Mô tả mỹ phẩm</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="header__notify-item">
+                                            <a href="" class="header__notify-link">
+                                                <img src="data:image/jpeg;base64,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" alt="" class="header__notify-img">
+                                                <div class="header__notify-info">
+                                                    <span class="header__notify-name">Mỹ phẩm</span>
+                                                    <span class="header__notify-descriotion">Mô tả mỹ phẩm</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="header__notify-item header__notify-item--viewed">
+                                            <a href="" class="header__notify-link">
+                                                <img src="data:image/jpeg;base64,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" alt="" class="header__notify-img">
+                                                <div class="header__notify-info">
+                                                    <span class="header__notify-name">Mỹ phẩm</span>
+                                                    <span class="header__notify-descriotion">Mô tả mỹ phẩm</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="header__notify-item header__notify-item--viewed">
+                                            <a href="" class="header__notify-link">
+                                                <img src="data:image/jpeg;base64,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" alt="" class="header__notify-img">
+                                                <div class="header__notify-info">
+                                                    <span class="header__notify-name">Mỹ phẩm</span>
+                                                    <span class="header__notify-descriotion">Mô tả mỹ phẩm</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <footer class="header__notify-footer">
+                                        <a href="" class="header__notify-footer-btn">Xem tất cả</a>
+                                    </footer>
+                                </div>
+                            </li>
+                            <li class="header__navbar-item">
+                                <a href="" class="header__navbar-item-link">
+                                    <i class="header__navbar-icon far fa-question-circle"></i>
+                                    Trợ giúp
+                                </a>
+                            </li>
+                            <!-- <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">Đăng ký</li>
+                            <li class="header__navbar-item header__navbar-item--strong">Đăng nhập</li> -->
+                            <li class="header__navbar-item header__navbar-user">
+                                <img src="./assets/img/doraemon_img.jpg" alt="" class="header__navbar-user-img">
+                                <span class="header__navbar-user-name">Duong Van Nhat</span>
+                                <ul class="header__navbar-user-menu">
+                                    <li class="header__navbar-user-item">
+                                        <a href="">Tài khoản của tôi</a>
+                                    </li>
+                                    <li class="header__navbar-user-item">
+                                        <a href="">Địa chỉ của tôi</a>
+                                    </li>
+                                    <li class="header__navbar-user-item">
+                                        <a href="">Đơn mua</a>
+                                    </li>
+                                    <li class="header__navbar-user-item header__navbar-user-item--separate">
+                                        <a href="">Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Header with search -->
+                    <div class="header-with-search">
+                        <div class="header__logo">
+                            <a href="/Shoppe/index.html" class="header__logo-link">
+                                <svg viewBox="0 0 192 65" class="header__logo-img">
+                                    <!-- Đoạn mã path của bạn -->
+                                    <path d="M 35.6717 44.9538 c -0.33335 2.75105 -2.00031 4.95434 -4.58238 6.0576 c -1.43797 0.614592 -3.36871 0.946386 -4.89695 0.842163 c -2.38403 -0.0911143 -4.62379 -0.670894 -6.68834 -1.73074 c -0.737552 -0.378855 -1.83705 -1.13528 -2.68131 -1.84378 c -0.213839 -0.179005 -0.239235 -0.293758 -0.0977428 -0.494467 c 0.0764015 -0.115182 0.217254 -0.322983 0.528622 -0.779199 c 0.45158 -0.661653 0.507921 -0.744602 0.558713 -0.822178 c 0.14448 -0.221769 0.379233 -0.241109 0.610785 -0.0588804 c 0.0243289 0.0189105 0.0243289 0.0189105 0.0426824 0.0333083 c 0.0379873 0.0294402 0.0379873 0.0294402 0.12762 0.0990653 c 0.0907002 0.0706996 0.14448 0.112389 0.166248 0.128721 c 2.22653 1.74385 4.8197 2.74955 7.43762 2.85012 c 3.6423 -0.0496401 6.26151 -1.68733 6.7308 -4.202 c 0.51603 -2.7676 -1.6565 -5.15827 -5.90703 -6.49082 c -1.32934 -0.416676 -4.68952 -1.76169 -5.30905 -2.12507 c -2.90945 -1.7071 -4.26974 -3.94306 -4.07638 -6.70485 c 0.296216 -3.82831 3.85017 -6.68358 8.34079 -6.7027 c 2.00821 -0.004083 4.01215 0.413238 5.93734 1.22446 c 0.681638 0.287311 1.89873 0.949609 2.31894 1.26335 c 0.242009 0.177716 0.289814 0.384872 0.151096 0.60836 c -0.0774686 0.12958 -0.205516 0.335017 -0.475482 0.763297 l -0.0029878 0.0047276 c -0.355331 0.564092 -0.366429 0.581713 -0.447952 0.713657 c -0.140852 0.214463 -0.30646 0.234448 -0.56042 0.0732783 c -2.06007 -1.38391 -4.34379 -2.08016 -6.85544 -2.13044 c -3.12691 0.061889 -5.47061 1.92286 -5.62469 4.45794 c -0.0409751 2.28968 1.67635 3.96132 5.38588 5.23585 c 7.52982 2.41969 10.4113 5.25648 9.86903 9.72925 M 26.3725 5.42669 c 4.90229 0 8.89822 4.6522 9.08517 10.4758 H 17.2876 c 0.186949 -5.82358 4.18288 -10.4758 9.08495 -10.4758 m 25.3709 11.5707 c 0 -0.604707 -0.487006 -1.09488 -1.08755 -1.09488 h -11.7774 c -0.28896 -7.68928 -5.77749 -13.8206 -12.5059 -13.8206 c -6.72824 0 -12.2168 6.13131 -12.5057 13.8206 l -11.7942 0.0002149 c -0.591365 0.0107446 -1.06749 0.496831 -1.06749 1.09466 c 0 0.0285807 0.00106706 0.0569465 0.00320118 0.0848825 H 0.999957 l 1.68126 37.0614 c 0.00021341 0.103148 0.00405483 0.207156 0.0117377 0.311809 c 0.00170729 0.0236381 0.003628 0.0470614 0.00554871 0.0704847 l 0.00362801 0.0782207 l 0.00405483 0.004083 c 0.255454 2.57892 2.12708 4.65607 4.67202 4.75191 l 0.00576212 0.0055872 h 37.4122 c 0.0177132 0.0002149 0.0354264 0.0004298 0.0531396 0.0004298 c 0.0177132 0 0.0354264 -0.0002149 0.0531396 -0.0004298 h 0.0796027 l 0.0017073 -0.0015043 c 2.58933 -0.0706995 4.68674 -2.17686 4.90826 -4.78759 l 0.0012805 -0.0012893 l 0.0017073 -0.0350275 c 0.0021341 -0.0275062 0.0040548 -0.0547975 0.0057621 -0.0823037 c 0.0040548 -0.065757 0.0068292 -0.131299 0.0078963 -0.196412 l 1.83449 -37.2077 h -0.0012805 c 0.001067 -0.0186956 0.0014939 -0.0376062 0.0014939 -0.0565167 M 176.465 41.1519 c 0.720839 -2.35125 2.90042 -3.91868 5.44373 -3.91868 c 2.42769 0 4.73911 1.64869 5.5376 3.9142 l 0.054826 0.155698 h -11.0827 l 0.046506 -0.151219 Z m 13.5027 3.40637 c 0.014933 0.0006399 0.014933 0.0006399 0.036906 0.0008531 c 0.021973 -0.0002132 0.021973 -0.0002132 0.044372 -0.0008531 c 0.53055 -0.0243144 0.950595 -0.476691 0.950595 -1.02718 c 0 -0.0266606 -0.000853 -0.0496953 -0.00256 -0.0865936 c 0.000427 -0.0068251 0.000427 -0.020262 0.000427 -0.0635588 c 0 -5.19263 -4.07075 -9.40073 -9.09145 -9.40073 c -5.02049 0 -9.09124 4.20811 -9.09124 9.40073 c 0 0.387112 0.022399 0.773157 0.067838 1.15686 l 0.00256 0.0204753 l 0.01408 0.10131 c 0.250022 1.86837 1.04723 3.58318 2.3063 4.97081 c -0.00064 -0.0006399 0.00064 0.0006399 0.007253 0.0078915 c 1.39603 1.53629 3.29146 2.5833 5.3936 2.97489 l 0.02752 0.0053321 v -0.0027727 l 0.13653 0.0228215 c 0.070186 0.0119439 0.144211 0.0236746 0.243409 0.039031 c 2.76688 0.332724 5.22123 -0.0661182 7.29948 -1.11271 c 0.511777 -0.257861 0.971928 -0.542383 1.37064 -0.842901 c 0.128211 -0.0968312 0.243622 -0.190463 0.34346 -0.278123 c 0.051412 -0.0452164 0.092372 -0.083181 0.114131 -0.105149 c 0.468898 -0.48309 0.498124 -0.654357 0.215249 -1.09543 c -0.31146 -0.495673 -0.586228 -0.917977 -0.821744 -1.26755 c -0.082345 -0.122425 -0.154023 -0.226721 -0.214396 -0.313315 c -0.033279 -0.0475624 -0.033279 -0.0475624 -0.054399 -0.0776356 c -0.008319 -0.0117306 -0.008319 -0.0117306 -0.013866 -0.0191956 l -0.00256 -0.0038391 c -0.256208 -0.318861 -0.431565 -0.34808 -0.715933 -0.0970445 c -0.030292 0.0268739 -0.131624 0.105149 -0.14997 0.124558 c -1.99932 1.77538 -4.72951 2.34656 -7.45585 1.77602 c -0.507724 -0.136289 -0.982595 -0.309476 -1.41992 -0.518495 c -1.70813 -0.856551 -2.91834 -2.3826 -3.26756 -4.14903 l -0.02752 -0.139488 h 13.7546 Z M 154.832 41.1519 c 0.720831 -2.35125 2.90039 -3.91868 5.44367 -3.91868 c 2.42766 0 4.73905 1.64869 5.53775 3.9142 l 0.054612 0.155698 h -11.0825 l 0.046505 -0.151219 Z m 13.5025 3.40637 c 0.015146 0.0006399 0.015146 0.0006399 0.037118 0.0008531 c 0.02176 -0.0002132 0.02176 -0.0002132 0.044159 -0.0008531 c 0.530543 -0.0243144 0.950584 -0.476691 0.950584 -1.02718 c 0 -0.0266606 -0.000854 -0.0496953 -0.00256 -0.0865936 c 0.000426 -0.0068251 0.000426 -0.020262 0.000426 -0.0635588 c 0 -5.19263 -4.0707 -9.40073 -9.09134 -9.40073 c -5.02022 0 -9.09134 4.20811 -9.09134 9.40073 c 0 0.387112 0.022826 0.773157 0.068051 1.15686 l 0.00256 0.0204753 l 0.01408 0.10131 c 0.250019 1.86837 1.04722 3.58318 2.30627 4.97081 c -0.00064 -0.0006399 0.00064 0.0006399 0.007254 0.0078915 c 1.39601 1.53629 3.29142 2.5833 5.39354 2.97489 l 0.027519 0.0053321 v -0.0027727 l 0.136529 0.0228215 c 0.070184 0.0119439 0.144209 0.0236746 0.243619 0.039031 c 2.76685 0.332724 5.22117 -0.0661182 7.29918 -1.11271 c 0.511771 -0.257861 0.971917 -0.542383 1.37062 -0.842901 c 0.128209 -0.0968312 0.243619 -0.190463 0.343456 -0.278123 c 0.051412 -0.0452164 0.09237 -0.083181 0.11413 -0.105149 c 0.468892 -0.48309 0.498118 -0.654357 0.215246 -1.09543 c -0.311457 -0.495673 -0.586221 -0.917977 -0.821734 -1.26755 c -0.082344 -0.122425 -0.154022 -0.226721 -0.21418 -0.313315 c -0.033492 -0.0475624 -0.033492 -0.0475624 -0.054612 -0.0776356 c -0.008319 -0.0117306 -0.008319 -0.0117306 -0.013866 -0.0191956 l -0.002346 -0.0038391 c -0.256419 -0.318861 -0.431774 -0.34808 -0.716138 -0.0970445 c -0.030292 0.0268739 -0.131623 0.105149 -0.149969 0.124558 c -1.99908 1.77538 -4.72945 2.34656 -7.45577 1.77602 c -0.507717 -0.136289 -0.982582 -0.309476 -1.4199 -0.518495 c -1.70811 -0.856551 -2.9181 -2.3826 -3.26731 -4.14903 l -0.027733 -0.139488 h 13.7545 Z M 138.321 49.7358 c -3.3813 0 -6.14681 -2.68085 -6.23169 -6.04042 v -0.316217 c 0.0840194 -3.35419 2.8504 -6.03547 6.23169 -6.03547 c 3.44242 0 6.23321 2.77406 6.23321 6.19605 c 0 3.42199 -2.79078 6.19605 -6.23321 6.19605 m 0.00172791 -15.6791 c -2.21777 0 -4.33683 0.755348 -6.0399 2.14076 l -0.193525 0.157355 V 34.6209 c 0 -0.462379 -0.0993546 -0.564197 -0.567401 -0.564197 h -2.17651 c -0.474094 0 -0.567617 0.094284 -0.567617 0.564197 v 27.6401 c 0 0.453984 0.105834 0.564197 0.567617 0.564197 h 2.17651 c 0.463511 0 0.567401 -0.107845 0.567401 -0.564197 V 50.7342 l 0.193525 0.157355 c 1.70328 1.38563 3.82234 2.14098 6.0399 2.14098 c 5.27141 0 9.54474 -4.24795 9.54474 -9.48803 c 0 -5.23987 -4.27333 -9.48781 -9.54474 -9.48781 M 115.908 49.524 c -3.44946 0 -6.2458 -2.74969 -6.2458 -6.14259 c 0 -3.39289 2.79656 -6.1428 6.2458 -6.1428 c 3.44882 0 6.24538 2.74991 6.24538 6.1428 c 0 3.39268 -2.79635 6.14259 -6.24538 6.14259 m 0.001914 -15.5438 c -5.28187 0 -9.56303 4.21129 -9.56303 9.40594 c 0 5.19444 4.28116 9.40594 9.56303 9.40594 c 5.28166 0 9.56239 -4.2115 9.56239 -9.40594 c 0 -5.19465 -4.28052 -9.40594 -9.56239 -9.40594 M 94.5919 34.1891 c -1.92813 0 -3.79389 0.6199 -5.34177 1.7656 l -0.188189 0.139311 V 23.2574 c 0 -0.425468 -0.139582 -0.564348 -0.564997 -0.564348 h -2.27827 c -0.460041 0 -0.565212 0.110027 -0.565212 0.564348 v 29.2834 c 0 0.443339 0.113559 0.564778 0.565212 0.564778 h 2.27827 c 0.422619 0 0.564997 -0.14577 0.564997 -0.564778 v -9.56484 c 0.023658 -3.011 2.49313 -5.44129 5.52996 -5.44129 c 3.04458 0 5.51684 2.44213 5.52975 5.46304 v 9.54309 c 0 0.484465 0.0806524 0.564563 0.565212 0.564563 h 2.27268 c 0.481764 0 0.565212 -0.0824666 0.565212 -0.564563 v -9.57108 c -0.018066 -4.82807 -4.04402 -8.78065 -8.93285 -8.78065 M 62.8459 47.7938 l -0.0053397 0.0081519 c -0.324867 0.492119 -0.460922 0.699135 -0.536959 0.817981 c -0.256092 0.38121 -0.224267 0.551113 0.166812 0.881695 c 0.91266 0.735818 2.0859 1.50854 2.87745 1.89554 c 2.2023 1.07691 4.58103 1.64604 7.10179 1.69753 c 1.62839 0.0821628 3.67349 -0.305054 5.19637 -0.984238 c 2.75699 -1.22987 4.51311 -3.62696 4.82089 -6.57946 c 0.498514 -4.78411 -2.61431 -7.77479 -10.6322 -10.185 l -0.0021359 -0.0006435 c -3.73565 -1.20477 -5.49048 -2.80641 -5.49112 -5.04261 c 0.109998 -2.47153 2.40158 -4.31795 5.49326 -4.43315 c 2.49043 0.0062212 4.69231 0.6676 6.85574 2.05986 c 0.456223 0.276736 0.666607 0.22568 0.973319 -0.172263 c 0.035242 -0.0587797 0.133279 -0.201224 0.543367 -0.790093 l 0.0012815 -0.0019308 c 0.382963 -0.55004 0.508979 -0.733673 0.540377 -0.787948 c 0.258441 -0.486327 0.22149 -0.673821 -0.244985 -1.00462 c -0.459427 -0.32908 -1.75355 -1.00247 -2.49364 -1.29787 c -2.05834 -0.821199 -4.18632 -1.22 -6.30425 -1.17881 c -4.81982 0.104688 -8.57875 3.23932 -8.82651 7.35153 c -0.157201 2.9703 1.3503 5.35882 4.50008 7.12457 c 0.882971 0.466161 4.11156 1.68659 5.61842 2.12787 c 4.28478 1.25475 6.51869 3.56303 6.05713 6.28642 c -0.419273 2.47432 -3.0118 4.11994 -6.64984 4.23256 c -2.63823 -0.0549182 -5.29633 -1.02178 -7.60436 -2.75621 c -0.0115337 -0.0083664 -0.0700567 -0.0519149 -0.177919 -0.132362 c -0.151647 -0.113054 -0.151647 -0.113054 -0.174288 -0.130002 c -0.470534 -0.32479 -0.747343 -0.29776 -1.03462 0.130216 c -0.0346012 0.0529875 -0.391933 0.596378 -0.568143 0.863246"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="header__search">
+                            <div class="header__search-input-wrap">
+                                <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm">
+                                <!-- Search history -->
+                                <div class="header__search-history">
+                                    <h4 class="header__search-history-heading">Lịch sử tìm kiếm</h4>
+                                    <ul class="header__search-history-list">
+                                        <li class="header__search-history-item">
+                                            <a href="" class="">Kem dưỡng da</a>
+                                        </li>
+                                        <li class="header__search-history-item">
+                                            <a href="" class="">Kem trị mụn</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header__search-select">
+                                <span class="header__search-select-label">Trong shop</span>
+                                <i class="fa-solid fa-chevron-down header__search-select-icon"></i>
+                                <ul class="header__search-select-list">
+                                    <li class="header__search-select-item header__search-select-item--active">
+                                        <span class="header__search-select-item-text">Trong Shop</span>
+                                        <i class="fa-solid fa-check"></i>
+                                    </li>
+                                    <li class="header__search-select-item">
+                                        <span class="header__search-select-item-text">Ngoài Shop</span>
+                                        <i class="fa-solid fa-check"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="header__search-btn">
+                                <i class="fa-solid fa-magnifying-glass header__search-btn-icon"></i>
+                            </button>
+                        </div>
+                        <!-- Cart layout -->
+                        <div class="header__cart">
+                            <div class="header__cart-wrap">
+                                <i class="fa-solid fa-cart-shopping header__cart-icon"></i>
+                                <div class="header__cart-wrap--no-cart">
+                                    <img src="./assets/img/no_cart.png" alt="" class="header__cart-no-cart-img">
+                                    <p>Chưa có sản phẩm</p>
+                                </div>
+                                <div class="header__cart-wrap--has-cart">
+                                    <div class="header__cart-list">
+                                        <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                                        <ul class="header__cart-list-item">
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt cao cấp nhập khẩu Thái Lan
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="header__cart-item">
+                                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luoe8rc65es2ec_tn" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">
+                                                            Kem đặc trị vùng mắt
+                                                        </h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">2.000.000</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-quantity">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">Phân loại: Bạc</span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <button class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="app__container">
+                <div class="grid app__content">
+                    <div class="grid__row">
+                        <div class="grid__colum-2">
+                            <nav class="category">
+                                <h3 class="category__heading">
+                                    Danh mục
+                                </h3>
+                                <ul class="category-list">
+                                    <li class="category-item category--active">
+                                        <a href="#" class="category-item__link">Trang điểm mặt</a>
+                                    </li>
+                                    <li class="category-item">
+                                        <a href="#" class="category-item__link">Trang điểm môi</a>
+                                    </li>
+                                    <li class="category-item">
+                                        <a href="#" class="category-item__link">Trang điểm mắt</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="grid__colum-10">
+                            <div class="home-filter-wrap">
+                                <div class="home-filter">
+                                    <span class="home-filter__label">Sắp xếp theo</span>
+                                    <button class="btn btn-home-filter">Phổ biến</button>
+                                    <button class="btn btn-home-filter btn--primary">Mới nhất</button>
+                                    <button class="btn btn-home-filter">Bán chạy</button>
+                                    <div class="home-filter__select-input">
+                                        <span class="home-filter__select-input__label">Giá</span>
+                                        <i class="fas fa-angle-down home-filter__select-input__icon"></i>
+                                        <ul class="home-filter__select-input__list">
+                                            <li class="home-filter__select-input__item">
+                                                <a href="" class="home-filter__select-input__link">Giá: Thấp đến cao</a>
+                                            </li>
+                                            <li class="home-filter__select-input__item">
+                                                <a href="" class="home-filter__select-input__link">Giá: Cao đến thấp</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="home-filter__page">
+                                    <span class="home-filter__page-num">
+                                        <span class="home-filter__page-current">1</span>
+                                        /14
+                                    </span>
+                                    <div class="home-filter__page--control">
+                                        <a href="" class="home-filter__page-btn home-filter__page-btn--disabled">
+                                            <i class="fas fa-angle-left home-filter__page-icon"></i>
+                                        </a>
+                                        <a href="" class="home-filter__page-btn">
+                                            <i class="fas fa-angle-right home-filter__page-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="home-product">
+                                <div class="grid__row">
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid__colum-10--20">
+                                        <a class="home-product-item" href="">
+                                            <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/3165616fa3051843a2887eb6db4aca19_tn);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Gói sample kem Ohui dưỡng trắng và căng bóng da OHUI Prime Advancer Ampoule Capture Cream 1ml
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    7.000đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    3.900đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like--liked">
+                                                    <i class="far fa-heart home-product-item__like--empty"></i>
+                                                    <i class="fas fa-heart home-product-item__like--fill"></i>
+                                                </span>
+                                                <div class="home-product__rating">
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="home-product__rating-star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                <span class="home-product-item__origin-name">Nhật Bản</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                Yêu thích +
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-percent">10%</span>
+                                                <span class="home-product-item__sale-off-label">Giảm</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="pagination home-product__pagination">
+                                <li class="pagination-item">
+                                    <a href="" class="pagination-item__link">
+                                        <i class="pagination__icon fas fa-angle-left"></i>
+                                    </a>
+                                </li>
+                                <li class="pagination-item pagination-item--active">
+                                    <a href="" class="pagination-item__link">1</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="" class="pagination-item__link">2</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="" class="pagination-item__link">3</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="" class="pagination-item__link">...</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="" class="pagination-item__link">10</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="" class="pagination-item__link">
+                                        <i class="pagination__icon fas fa-angle-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="grid">
+                    <div class="grid__row">
+                        <div class="grid__colum-12--24">
+                            <h3 class="footer__heading">Chăm sóc khách hàng</h3>
+                            <ul class="footer-list">
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">Trung tâm trợ giúp</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">Shoppe Mall</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">Hướng dẫn mua hàng</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="grid__colum-12--24">
+                            <h3 class="footer__heading">Về Shoppe</h3>
+                            <ul class="footer-list">
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">Giới thiệu</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">Tuyển dụng</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">Điều khoản</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="grid__colum-12--24">
+                            <h3 class="footer__heading">Danh mục</h3>
+                            <ul class="footer-list">
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">Trang điểm mặt</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">Trang điểm môi</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">Trang điểm mắt</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="grid__colum-12--24">
+                            <h3 class="footer__heading">Theo dõi</h3>
+                            <ul class="footer-list">
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">
+                                        <i class="footer-item__icon fab fa-facebook"></i>
+                                        Facebook
+                                    </a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">
+                                        <i class="footer-item__icon fab fa-instagram"></i>
+                                        Instagram
+                                    </a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="" class="footer-item__link">
+                                        <i class="footer-item__icon fab fa-linkedin"></i>
+                                        Linkedi
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="grid__colum-12--24">
+                            <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
+                            <div class="footer__download">
+                                <img src="./assets/img/QR.png" alt="Download QR" class="footer__download-qr-img">
+                                <div class="footer__download-apps">
+                                    <a href="" class="footer__download-apps-link">
+                                        <img src="./assets/img/App_store.png" alt="Google play" class="footer__download-apps-img">
+                                    </a>
+                                    <a href="" class="footer__download-apps-link">
+                                        <img src="./assets/img/Google_play.png" alt="App store" class="footer__download-apps-img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <d class="grid">
+                        <p class="footer__text">
+                            Bản quyền thuộc về
+                            <a href="https://shopee.vn/" target="_blank">Shoppe</a>
+                        </p>
+                        <p class="footer__text">
+                            Mọi đóng góp và khiếu nại, xin vui lòng liên lạc
+                            <a href="mailto:nhatn42003bn@gmail.com">tại đây</a>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <div class="modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__body">
+                <!-- Register form -->
+                <div class="auth-form">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn">Đăng nhập</span>
+                    </div>
+                    <div class="auth-form__container">
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <input type="email" class="auth-form__input" placeholder="Email của bạn">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="text" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="text" class="auth-form__input" placeholder="Nhập lại mật khẩu của bạn">
+                            </div>
+                        </div>
+                        <div class="auth-form__aside">
+                            <p class="auth-form__policy-text">
+                                Bằng việc đăng ký, bạn đã đồng ý với F8 về
+                                <a href="" class="auth-form__text-link">
+                                    Điều khoản dịch vụ
+                                </a>
+                                &
+                                <a href="" class="auth-form__text-link">
+                                    Chính sách bảo mật
+                                </a>
+                            </p>
+                        </div>
+                        <div class="auth-form_controls">
+                            <button class="btn btn-normal auth-form__controls-back">TRỞ LẠI</button>
+                            <button class="btn btn--primary">ĐĂNG KÝ</button>
+                        </div>
+                    </div>
+                    <div class="auth-form__socials">
+                        <a href="" class="btn btn--with-icon auth-form__socials-fb">
+                            <i class="fa-brands fa-square-facebook auth-form__socials-icon"></i>
+                            <span class="auth-form__socials-title">
+                                Kết nối với Facebook
+                            </span>
+                        </a>
+                        <a href="" class="btn btn--with-icon auth-form__socials-gg">
+                            <i class="fa-brands fa-google auth-form__socials-icon"></i>
+                            <span class="auth-form__socials-title">
+                                Kết nối với Google
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <!-- login form -->
+                <div class="auth-form">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        <span class="auth-form__switch-btn">Đăng ký</span>
+                    </div>
+                    <div class="auth-form__container">
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <input type="email" class="auth-form__input" placeholder="Email của bạn">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="text" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                            </div>
+                        </div>
+                        <div class="auth-form__aside">
+                            <div class="auth-form__help">
+                                <a href="" class="auth-form__help-link">Quên mật khẩu</a>
+                                <span class="auth-form__help-separate"></span>
+                                <a href="" class="auth-form__help-link">Cần trợ giúp?</a>
+                            </div>
+                        </div>
+                        <div class="auth-form_controls">
+                            <button class="btn btn-normal auth-form__controls-back">TRỞ LẠI</button>
+                            <button class="btn btn--primary">ĐĂNG NHẬP</button>
+                        </div>
+                    </div>
+                    <div class="auth-form__socials">
+                        <a href="" class="btn btn--with-icon auth-form__socials-fb">
+                            <i class="fa-brands fa-square-facebook auth-form__socials-icon"></i>
+                            <span class="auth-form__socials-title">
+                                Đăng nhập với Facebook
+                            </span>
+                        </a>
+                        <a href="" class="btn btn--with-icon auth-form__socials-gg">
+                            <i class="fa-brands fa-google auth-form__socials-icon"></i>
+                            <span class="auth-form__socials-title">
+                                Đăng nhập với Google
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
